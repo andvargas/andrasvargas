@@ -7,8 +7,8 @@ const ysabeau = localFont({ src: "./fonts/YsabeauRegular.ttf", variable: "--font
 
 export const metadata: Metadata = {
   title: "Andras Vargas | Fractional Operations Engineer",
-  description: "Practical improvements to workflows, CRM and connected software for growing UK service businesses. Work directly with Andras Vargas.",
-  robots: { index: false, follow: false },
+  description: "Practical improvements to workflows, CRM and connected software for growing UK service businesses. Work directly with Andras V.",
+  robots: { index: true, follow: true, nocache: true },
   icons: { icon: "/favicon.ico", apple: "/apple-touch-icon.png" },
 };
 

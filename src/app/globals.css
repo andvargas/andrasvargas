@@ -9,6 +9,11 @@
   --font-sans: var(--font-body);
 }
 
+@utility font-heading {
+  font-family: var(--font-heading), sans-serif;
+  font-weight: 700;
+}
+
 :root { background: #f0eee9; color: #020817; }
 * { box-sizing: border-box; }
 html { scroll-behavior: smooth; scroll-padding-top: 36px; }
