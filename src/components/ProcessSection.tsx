@@ -22,8 +22,8 @@ const steps: Step[] = [
     number: "02",
     step: "Improve",
     title: "Implementation Sprint",
-    price: "£2,500 · one week, agreed upfront",
-    body: "I take the fixes from your roadmap that fit into one week and build them, designed for people working on site from their phones. We agree the list before I start.",
+    price: "£4,000 · deliverables agreed upfront",
+    body: "I take the fixes from your roadmap that fit into two weeks and build them, designed for people working on site from their phones. We agree the list before I start.",
     gets: "the agreed fixes working, your existing tools (Xero, CRM, quoting app) connected, and a handover your team can follow.",
   },
   {
