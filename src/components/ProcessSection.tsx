@@ -1,9 +1,11 @@
+import type { ReactNode } from "react";
+
 type Step = {
   number: string;
   step: string;
   title: string;
   price: string;
-  body: string;
+  body: ReactNode;
   gets: string;
   tag?: string;
 };
@@ -14,7 +16,19 @@ const steps: Step[] = [
     step: "Understand",
     title: "Operational Diagnostic",
     price: "£1,400 · agreed upfront",
-    body: "I spend time with you and your team, in person where possible, and trace how a job really moves from enquiry to quote to invoice to payment. You get a clear answer on where the time and money are leaking.",
+    body: (
+      <>
+        I spend time with you and your team, in person where possible, and trace how a job really moves from enquiry to quote to invoice to payment.
+        You get{" "}
+        <a
+          href="#operational-diagnostic.pdf"
+          className="font-semibold underline underline-offset-4 focus-visible:outline-2 focus-visible:outline-offset-4 focus-visible:outline-emerald-800"
+        >
+          a clear answer
+        </a>{" "}
+        on where the time and money are leaking.
+      </>
+    ),
     gets: "a mapped workflow, the single most expensive bottleneck identified, and a written roadmap of what to fix first.",
     tag: "Start here",
   },
@@ -53,30 +67,23 @@ export default function ProcessSection() {
             </h2>
           </div>
           <p>
-            You don&apos;t need to replace your software or overhaul the business. I find the one bit of admin costing
-            you the most between enquiry and payment, fix it, and show you what to tackle next.
+            You don&apos;t need to replace your software or overhaul the business. I find the one bit of admin costing you the most between enquiry
+            and payment, fix it, and show you what to tackle next.
           </p>
         </div>
 
         <ol className="mt-10 grid list-none grid-cols-1 gap-4 p-0 lg:grid-cols-3 lg:gap-6">
           {steps.map(({ number, step, title, price, body, gets, tag }) => (
-            <li
-              key={number}
-              className="bg-white flex flex-col border border-black/15 p-5 sm:p-8"
-            >
+            <li key={number} className="bg-white flex flex-col border border-black/15 p-5 sm:p-8">
               <div className="flex min-h-7 items-center justify-between gap-3">
                 <span className="font-heading text-sm font-semibold uppercase text-accent">
                   {number} {step}
                 </span>
-                {tag && (
-                  <span className="rounded-full bg-primary px-3 py-0.5 text-[0.8125rem] font-semibold text-white">
-                    {tag}
-                  </span>
-                )}
+                {tag && <span className="rounded-full bg-primary px-3 py-0.5 text-[0.8125rem] font-semibold text-white">{tag}</span>}
               </div>
 
               <h3 className="mb-1 mt-4">{title}</h3>
-              <p className="mb-4 font-semibold">{price}</p>
+              {/* <p className="mb-4 font-semibold">{price}</p> (I remove the price until established) */}
               <p className="m-0 max-w-[60ch]">{body}</p>
 
               {/* mt-auto pins "You get" to the bottom so all three cards line up */}
@@ -91,8 +98,7 @@ export default function ProcessSection() {
 
         <div className="mt-8 flex flex-wrap items-baseline justify-between gap-x-8 gap-y-4 border-t border-black/15 pt-6">
           <p className="m-0 max-w-[52ch]">
-            Not sure where to start? Begin with the diagnostic, and we&apos;ll agree the next step once you can see
-            what&apos;s costing you.
+            Not sure where to start? Begin with the diagnostic, and we&apos;ll agree the next step once you can see what&apos;s costing you.
           </p>
           {showFoundingOffer && (
             <p className="m-0">

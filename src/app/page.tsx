@@ -118,7 +118,8 @@ export default function Home() {
               operations.
             </h1>
             <p className="hero-description">
-              I help growing UK service businesses connect their people, workflows and software, so the everyday work runs more smoothly.
+              I help growing UK service businesses connect their people, workflows and software, using affordable web tools (PWA) and a developer who
+              builds what's missing.
             </p>
             <div className="hero-actions">
               <a href="#contact" className="button">
@@ -218,7 +219,7 @@ export default function Home() {
 
         <section id="about" className="section wrap about-section" aria-labelledby="about-title">
           <div className="about-mark" aria-hidden="true">
-            <Image src="/av-logo.svg" width={210} height={165} alt="" />
+            <Image src="/img/andras.jpg" width={210} height={165} alt="" />
             <span>
               Understand the work.
               <br />
@@ -270,7 +271,7 @@ export default function Home() {
               ],
               [
                 "How much does it cost?",
-                "The Operational Diagnostic is £1,400. An Implementation Sprint is quoted as a fixed price once the diagnostic shows what needs fixing, so there are no surprises. Monthly support runs £750–£1,200 depending on how much you need. Everything is agreed in writing before any work starts.",
+                "The Operational Diagnostic is £1,400. An Implementation Sprint is £4,000 for approximately two weeks of building, with the list of fixes agreed before I start. Monthly support runs as fractional operation engineering at £750–£1,200 depending on how much you need. Everything is agreed in writing before any work starts, so there are no surprises.",
               ],
               [
                 "Do I have to continue after the diagnostic?",
