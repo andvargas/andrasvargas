@@ -10,7 +10,7 @@ Run `npm install`, then `npm run dev`. Open the local address printed by Next.js
 
 - Homepage: src/app/page.tsx
 - Shared styles and Tailwind colour tokens: src/app/globals.css
-- Contact email: src/lib/site.ts (hello@webtechsupport.co.uk, confirmed by Andras)
+- Contact email: src/lib/site.ts (<hello@andrasvargas.com>, confirmed by Andras)
 - Fonts: src/app/fonts, locally served Montserrat Bold and Ysabeau Regular
 - Logo and icons: public, from the approved New Website/Elements exports
 - Brand: background #F0EEE9; primary #FF7C00; text #020817; accent #56001E; surface #FFFFFF
@@ -27,4 +27,4 @@ The homepage uses real navigation anchors and expandable FAQs. Contact actions o
 
 ## Client portal
 
-See docs/CLIENT-PORTAL.md for the deferred Naplo login/activity integration. The current API is https://api.webtechsupport.co.uk; the source project is /Users/andras/Sites/api.andrasvargas. Live functionality has not been verified. The homepage does not contact or modify it.
+See docs/CLIENT-PORTAL.md for the deferred Naplo login/activity integration. The current API is <https://api.webtechsupport.co.uk>; the source project is /Users/andras/Sites/api.andrasvargas. Live functionality has not been verified. The homepage does not contact or modify it.

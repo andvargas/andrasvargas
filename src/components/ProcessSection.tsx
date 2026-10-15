@@ -74,12 +74,12 @@ export default function ProcessSection() {
 
         <ol className="mt-10 grid list-none grid-cols-1 gap-4 p-0 lg:grid-cols-3 lg:gap-6">
           {steps.map(({ number, step, title, price, body, gets, tag }) => (
-            <li key={number} className="bg-white flex flex-col border border-black/15 p-5 sm:p-8">
+            <li key={number} className="flex flex-col rounded-[2px] border-t-4 border-primary bg-white p-5 sm:p-8">
               <div className="flex min-h-7 items-center justify-between gap-3">
                 <span className="font-heading text-sm font-semibold uppercase text-accent">
                   {number} {step}
                 </span>
-                {tag && <span className="rounded-full bg-primary px-3 py-0.5 text-[0.8125rem] font-semibold text-white">{tag}</span>}
+                {tag && <span className="rounded-[2px] bg-accent px-3 py-0.5 text-[0.8125rem] font-semibold text-white">{tag}</span>}
               </div>
 
               <h3 className="mb-1 mt-4">{title}</h3>
