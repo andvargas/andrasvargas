@@ -1,10 +1,9 @@
-"use client";
 import type { Metadata } from "next";
 import Image from "next/image";
 import Link from "next/link";
 import { site } from "@/lib/site";
 import ProcessSection from "@/components/ProcessSection";
-import { sendGAEvent } from "@next/third-parties/google";
+import AuditLink from "@/components/AuditLink";
 
 function Arrow({ diagonal = false }: { diagonal?: boolean }) {
   return (
@@ -355,17 +354,13 @@ export default function OperationalDiagnostic() {
               </p>
             </div>
             <div className="contact-action">
-              <a href={site.contactHref} className="button">
-                Discuss your workflow <Arrow diagonal />
-              </a>
-              <a
-                className="email-link"
-                href={`mailto:${site.contactEmail}`}
-                onClick={() => sendGAEvent("event", "audit_email_click", { location: "Diagnostic page" })}
-              >
+              <AuditLink href={site.auditHref} className="button" location="contact_button">
+                Start your audit <Arrow diagonal />
+              </AuditLink>
+              <AuditLink className="email-link" href={`mailto:${site.contactEmail}`} location="contact_email">
                 {site.contactEmail}
-              </a>
-              <span>A direct conversation with me.</span>
+              </AuditLink>
+              <span>£495 fixed price. Report within 5 working days.</span>
             </div>
           </div>
         </section>
