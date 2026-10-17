@@ -1,8 +1,10 @@
+"use client";
 import type { Metadata } from "next";
 import Image from "next/image";
 import Link from "next/link";
 import { site } from "@/lib/site";
 import ProcessSection from "@/components/ProcessSection";
+import { sendGAEvent } from "@next/third-parties/google";
 
 function Arrow({ diagonal = false }: { diagonal?: boolean }) {
   return (
@@ -20,14 +22,46 @@ function Arrow({ diagonal = false }: { diagonal?: boolean }) {
 }
 
 function Symbol({ kind }: { kind: "workflow" | "connect" | "visibility" }) {
-  return <svg aria-hidden="true" width="36" height="36" viewBox="0 0 40 40" fill="none" stroke="currentColor" strokeWidth="1.4" strokeLinecap="round" strokeLinejoin="round">
-    {kind === "workflow" && <><rect x="4" y="5" width="12" height="9" rx="1"/><rect x="24" y="26" width="12" height="9" rx="1"/><path d="M10 14v16h14M16 9h14v17"/><path d="m26 21 4 5 4-5"/></>}
-    {kind === "connect" && <><path d="m16 25-2 2a8 8 0 0 1-11-11l8-8a8 8 0 0 1 11 0m2 7 2-2a8 8 0 0 1 11 11l-8 8a8 8 0 0 1-11 0M12 28l16-16"/></>}
-    {kind === "visibility" && <><rect x="3" y="5" width="34" height="29" rx="2"/><path d="M3 13h34M10 27v-5m10 5V17m10 10v-8"/></>}
-  </svg>;
+  return (
+    <svg
+      aria-hidden="true"
+      width="36"
+      height="36"
+      viewBox="0 0 40 40"
+      fill="none"
+      stroke="currentColor"
+      strokeWidth="1.4"
+      strokeLinecap="round"
+      strokeLinejoin="round"
+    >
+      {kind === "workflow" && (
+        <>
+          <rect x="4" y="5" width="12" height="9" rx="1" />
+          <rect x="24" y="26" width="12" height="9" rx="1" />
+          <path d="M10 14v16h14M16 9h14v17" />
+          <path d="m26 21 4 5 4-5" />
+        </>
+      )}
+      {kind === "connect" && (
+        <>
+          <path d="m16 25-2 2a8 8 0 0 1-11-11l8-8a8 8 0 0 1 11 0m2 7 2-2a8 8 0 0 1 11 11l-8 8a8 8 0 0 1-11 0M12 28l16-16" />
+        </>
+      )}
+      {kind === "visibility" && (
+        <>
+          <rect x="3" y="5" width="34" height="29" rx="2" />
+          <path d="M3 13h34M10 27v-5m10 5V17m10 10v-8" />
+        </>
+      )}
+    </svg>
+  );
 }
 
-const links = [{ label: "How I help", href: "#how-i-help" }, { label: "How it works", href: "#how-it-works" }, { label: "About me", href: "#about" }];
+const links = [
+  { label: "How I help", href: "#how-i-help" },
+  { label: "How it works", href: "#how-it-works" },
+  { label: "About me", href: "#about" },
+];
 
 function Workflow() {
   const rows = [
@@ -68,7 +102,8 @@ function Workflow() {
 
 export const metadata: Metadata = {
   title: "Operational Diagnostic | Andras Vargas",
-  description: "A fixed-price review of how a job moves from enquiry to payment in your trades business, with a written roadmap of what to fix first.",
+  description:
+    "A fixed-price review of how a job moves from enquiry to payment in your trades business, with a written roadmap of what to fix first.",
 };
 
 export default function OperationalDiagnostic() {
@@ -323,7 +358,11 @@ export default function OperationalDiagnostic() {
               <a href={site.contactHref} className="button">
                 Discuss your workflow <Arrow diagonal />
               </a>
-              <a className="email-link" href={`mailto:${site.contactEmail}`}>
+              <a
+                className="email-link"
+                href={`mailto:${site.contactEmail}`}
+                onClick={() => sendGAEvent("event", "audit_email_click", { location: "Diagnostic page" })}
+              >
                 {site.contactEmail}
               </a>
               <span>A direct conversation with me.</span>

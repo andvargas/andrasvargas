@@ -1,7 +1,10 @@
+"use client";
+
 import type { Metadata } from "next";
 import Image from "next/image";
 import { site } from "@/lib/site";
 import AuditSection from "@/components/AuditSection";
+import { sendGAEvent } from "@next/third-parties/google";
 
 export const metadata: Metadata = {
   title: "Workflow Audit, £495 | Andras Vargas",
@@ -351,7 +354,11 @@ export default function Home() {
               <a href={site.auditHref} className="button">
                 Start your audit <Arrow diagonal />
               </a>
-              <a className="email-link" href={`mailto:${site.contactEmail}`}>
+              <a
+                className="email-link"
+                href={`mailto:${site.contactEmail}`}
+                onClick={() => sendGAEvent("event", "audit_email_click", { location: "homepage" })}
+              >
                 {site.contactEmail}
               </a>
               <span>£495 fixed price. Report within 5 working days.</span>

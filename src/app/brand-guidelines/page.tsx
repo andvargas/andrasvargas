@@ -163,6 +163,12 @@ export default function BrandGuidelines() {
               <Label>Buttons</Label>
               <span className="font-heading inline-block rounded-[2px] bg-accent px-8 py-4 text-[17px] text-white">Book your review</span>
               <p className="mb-0 mt-4">Accent #56001E background with white Montserrat Bold text and a 2px radius. The button brightens slightly on hover.</p>
+              <div className="mt-6 rounded-[2px] bg-[#171717] p-6">
+                <span className="font-heading inline-block rounded-[2px] bg-primary px-8 py-4 text-[17px] text-ink">Start your audit</span>
+              </div>
+              <p className="mb-0 mt-4">
+                On dark feature panels, use Primary #FF7C00 with Text #020817 instead, so the button stands out. Never white text on orange.
+              </p>
             </div>
           </div>
 
