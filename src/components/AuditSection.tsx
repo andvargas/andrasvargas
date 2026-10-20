@@ -1,9 +1,12 @@
+import { site } from "@/lib/site";
+import AuditLink from "./AuditLink";
+
 const deliverables = [
   {
     number: "01",
     step: "Before",
     title: "Pre-session questionnaire",
-    body: "A short written questionnaire about how the workflow runs today, which tools you use and where it goes wrong. Fill it in when it suits you.",
+    body: "A short written questionnaire about how the workflow runs today, which tools you use, starting with your website and where its enquiries end up. Fill it in when it suits you.",
   },
   {
     number: "02",
@@ -15,13 +18,13 @@ const deliverables = [
     number: "03",
     step: "Report",
     title: "Written report",
-    body: "Where the time goes, where details get retyped or lost, and what each gap is costing you. In plain English, within 5 working days of the session.",
+    body: "Where the time goes, where your website hands off to your other tools, and where details get retyped or lost. In plain English, within 5 working days of the session.",
   },
   {
     number: "04",
     step: "Plan",
     title: "90-day plan and walkthrough",
-    body: "What to fix first, second and third, and whether to connect, configure or replace a tool. Then a 30-minute call to go through it together.",
+    body: "What to fix first, second and third, and whether to connect, configure or replace a tool, your website’s forms included. Then a 30-minute call to go through it together.",
   },
 ];
 
@@ -63,6 +66,9 @@ export default function AuditSection() {
             <p className="font-heading relative mb-0 mt-4 text-2xl leading-snug tracking-tight sm:text-3xl">
               If I don&apos;t find at least £1,000 in identifiable time savings, you don&apos;t pay.
             </p>
+            <p className="relative mb-0 mt-4 max-w-[52ch] text-[17px] text-[#f5f5f5]/80">
+              Your £165 deposit is refunded in full, and the remaining £330 is never invoiced.
+            </p>
           </div>
           <dl className="m-0 grid grid-cols-2 content-center gap-6 rounded-[2px] border-t-4 border-primary bg-white p-6 sm:p-8">
             <div>
@@ -78,15 +84,16 @@ export default function AuditSection() {
 
         <div className="mt-8 flex flex-wrap items-baseline justify-between gap-x-8 gap-y-4 border-t border-black/15 pt-6">
           <p className="m-0 max-w-[62ch]">
-            <strong className="font-bold">After the audit:</strong> the report is yours to act on yourself, with someone else, or with me. If you want me
-            to build the fixes, I&apos;ll send a one-page written proposal for a Workflow Fix Sprint, from £1,500, scoped by what the audit found.
+            <strong className="font-bold">After the audit:</strong> the report is yours to act on yourself, with someone else, or with me. If you want
+            me to build the fixes, I&apos;ll send a one-page written proposal for a Workflow Fix Sprint, from £1,500, scoped by what the audit found.
           </p>
-          <a
-            href="#contact"
+          <AuditLink
+            href={site.auditHref}
+            location="what_you_get_link"
             className="font-semibold underline underline-offset-4 focus-visible:outline-2 focus-visible:outline-offset-4 focus-visible:outline-emerald-800"
           >
             Start your audit
-          </a>
+          </AuditLink>
         </div>
       </div>
     </section>

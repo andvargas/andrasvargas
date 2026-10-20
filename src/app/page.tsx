@@ -7,7 +7,7 @@ import AuditLink from "../components/AuditLink";
 export const metadata: Metadata = {
   title: "Workflow Audit, £495 | Andras Vargas",
   description:
-    "A fixed-price review of one workflow in your trades business: enquiry to quote, job to invoice, or customer communication. Written report and 90-day plan within 5 working days.",
+    "A fixed-price review of how enquiries from your website move through your tools, from quote to invoice. Written report and 90-day plan within 5 working days.",
 };
 
 function Arrow({ diagonal = false }: { diagonal?: boolean }) {
@@ -122,9 +122,9 @@ export default function Home() {
               {link.label}
             </a>
           ))}
-          <a className="nav-contact" href="#contact">
+          <AuditLink className="nav-contact" href={site.auditHref} location="header_button">
             Start your audit <Arrow diagonal />
-          </a>
+          </AuditLink>
         </nav>
         <details className="mobile-nav">
           <summary>
@@ -136,7 +136,9 @@ export default function Home() {
                 {link.label}
               </a>
             ))}
-            <a href="#contact">Start your audit ↗</a>
+            <AuditLink href={site.auditHref} location="mobile_nav">
+              Start your audit ↗
+            </AuditLink>
           </nav>
         </details>
       </header>
@@ -155,13 +157,13 @@ export default function Home() {
               <span className="text-accent">£495.</span>
             </h1>
             <p className="hero-description">
-              A structured review of the one workflow costing your business the most time, with a written report and a prioritised 90-day plan within
-              5 working days.
+              A structured review of how work comes in through your website and moves through the tools behind it, from inbox and quoting to diary and
+              Xero. One workflow, a written report and a prioritised 90-day plan within 5 working days.
             </p>
             <div className="hero-actions">
-              <a href="#contact" className="button">
+              <AuditLink href={site.auditHref} className="button" location="hero_button">
                 Start your audit <Arrow diagonal />
-              </a>
+              </AuditLink>
               <a href="#what-you-get" className="text-link">
                 What you get <Arrow />
               </a>
@@ -210,12 +212,12 @@ export default function Home() {
               <h2 id="help-title">
                 One workflow.
                 <br />
-                Reviewed end to end.
+                From your website to getting paid.
               </h2>
             </div>
             <p>
-              You pick the workflow you already know isn’t working. I review it from the first step to the last and tell you, in writing, what to fix
-              first.
+              Most jobs start on your website: a form, a phone number, a Google listing. I follow one workflow from there through every tool it
+              touches, and tell you in writing where it leaks and what to fix first.
             </p>
           </div>
           <div className="grid gap-5 md:grid-cols-3 services">
@@ -224,7 +226,7 @@ export default function Home() {
                 kind: "workflow" as const,
                 title: "Enquiry to quote",
                 problem: "Enquiries sitting in inboxes? Quotes eating your evenings?",
-                body: "Where enquiries land, who picks them up, how long a quote takes to put together, and what happens when nobody follows up.",
+                body: "Where enquiries arrive, whether from your website form, phone, email or Google, who picks them up, how long a quote takes, and what happens when nobody follows up.",
                 tag: "Enquiries, quoting & follow-up",
               },
               {
@@ -238,7 +240,7 @@ export default function Home() {
                 kind: "connect" as const,
                 title: "Customer communication",
                 problem: "Customers ringing to ask what’s happening?",
-                body: "How customers hear from you between quote and completion: confirmations, updates and changes, and where calls and messages fall through.",
+                body: "How customers hear from you between quote and completion: confirmations, updates and changes, and whether what your website promises matches what happens after someone gets in touch.",
                 tag: "Updates, confirmations & changes",
               },
             ].map((item) => (
@@ -268,23 +270,25 @@ export default function Home() {
           </div>
           <div>
             <p className="eyebrow section-kicker">About Andras</p>
-            <h2 id="about-title">Hi, I’m Andras. I fix the admin between your tools.</h2>
+            <h2 id="about-title">
+              Hi, I’m Andras.
+              <br />I fix the gaps between your website and the tools behind it.
+            </h2>
             <p className="mt-4">
               Most of the cost in a growing business is in the gaps around the work: the quote retyped into Xero, the enquiry that sat in an inbox,
               the invoice nobody chased.
             </p>
             <p className="mt-4">
-              I&apos;ve spent 10+ years running the systems behind real businesses: migrating company&apos;s customer database to a new system while
-              it kept trading, leading online shop migrations, and building the automated emails and reports staff used every day. Since 2024,
-              I&apos;ve worked directly with small business owners to connect their tools and build what&apos;s missing.
+              I’ve spent 10+ years building websites and running the systems behind them. Since 2024, I&apos;ve worked directly with small business
+              owners to connect their tools and build what&apos;s missing.
             </p>
             <p className="mt-4">
               I build for the person using it, on site and on a phone, not just at a desk. You work with me directly, at a fixed price agreed before
               anything starts.
             </p>
-            <a href="#contact" className="text-link">
+            <AuditLink href={site.auditHref} className="text-link" location="about_link">
               Start your audit <Arrow diagonal />
-            </a>
+            </AuditLink>
           </div>
         </section>
 
@@ -295,7 +299,11 @@ export default function Home() {
             {[
               [
                 "Who is the audit for?",
-                "Owner-run trades, construction and property services businesses in London and the South East, usually with 3–20 people, already using at least one digital tool such as Xero, a quoting app or a simple CRM, and with a workflow you already know isn’t working. If you’re a sole trader, have no software yet, or are well over 50 people, it’s probably not the right fit.",
+                "Owner-run trades, construction and property services businesses in London and the South East, usually with 3–30 people, already using at least one digital tool such as Xero, a quoting app or a simple CRM, and with a workflow you already know isn’t working. If you’re a sole trader, have no software yet, or are well over 50 people, it’s probably not the right fit.",
+              ],
+              [
+                "Do I need a new website?",
+                "Probably not. Most websites do their job as a shop window. The problem is usually what happens after someone fills in the form. I look at how your site connects to your inbox, CRM, quoting and Xero, and only recommend changing the site itself where it’s the bottleneck.",
               ],
               [
                 "Which workflows can you audit?",
@@ -321,6 +329,10 @@ export default function Home() {
                 "Where does AI fit in?",
                 "It’s one tool among several, alongside simpler automation and integrations. I use it where it genuinely fits the workflow, with a person reviewing its output, and I won’t add it just because it’s fashionable.",
               ],
+              [
+                "How does payment work?",
+                "£165 when you book, £330 when the report arrives. If the report doesn’t find at least £1,000 in identifiable time savings, I refund the £165 and you don’t pay the rest.",
+              ],
             ].map(([q, a]) => (
               <details key={q}>
                 <summary>
@@ -343,9 +355,9 @@ export default function Home() {
                 costing you most?
               </h2>
               <p>
-                Email me the workflow you’d like reviewed.
+                Email me your website address and the workflow you’d like reviewed.
                 <br />
-                I’ll reply with the questionnaire and how to pay.
+                I’ll reply within one working day with the questionnaire and a payment link.
               </p>
             </div>
             <div className="contact-action">
